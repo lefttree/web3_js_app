@@ -20,6 +20,7 @@ const Navbar = () => {
             <div className="md:flex-[0.5] flex-initial justify-center items-center">
                 <img src={logo} alt="logl" className="w-32 cursor-pointer"></img>
             </div>
+            {/* regular navbar items*/}
             <ul className="text-white md:flex hidden list-none flex-row justify-between items-center flex-initial">
                 {["Market", "Exchange", "Tutorials", "Wallets"].map((item, index) => (
                     <NavbarItem key={item+index} title={item}/>
@@ -33,6 +34,7 @@ const Navbar = () => {
                 ? <AiOutlineClose fontSize={28} className="text-white md:hidden cursor-pointer" onClick={() => setToggleMenu(false)}/> 
                 : <HiMenu fontSize={28} className="text-white md:hidden cursor-pointer" onClick={() => setToggleMenu(true)}/>
                 }
+                {/* toggle menu for mobile or small screens */}
                 {toggleMenu && (
                     <ul
                         className="z-10 fixed top-0 -right-2 p-3 w-[70vw] h-screen shadow-2xl md:hidden list-none
