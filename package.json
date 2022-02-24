@@ -1,5 +1,9 @@
 {
   "devDependencies": {
     "prettier": "^2.5.1"
+  },
+  "engines": {
+    "npm": "8.4.1",
+    "node": "v17.5.0"
   }
 }
