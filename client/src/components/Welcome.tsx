@@ -30,13 +30,19 @@ const Input = ({placeholder, name, type, value, handleChange} : InputProps) => (
 
 
 const Welcome = () => {
-    const { connectWallet } = useContext(TransactionContext);
+    const { connectWallet, connectedAccount, formData, sendTransaction, handleChange } = useContext(TransactionContext);
 
-    const handleSubmit = () => {
+    const handleSubmit = (e) => {
+        const {addressTo, amount, keyword, message } = formData;
 
+        e.preventDefault();
+
+        if (!addressTo || !amount || !keyword || !message) return;
+
+        sendTransaction();
+        
     }
 
-    const handleChange = () => {}
     return (
         <div className="flex w-full justify-center items-center">
             <div className="flex mf:flex-row flex-col items-start justify-between md:p-20 py-12 px-4">
@@ -47,7 +53,8 @@ const Welcome = () => {
                     <p className="text-left mt-5 text-white font-light md:w-9/12 w-11/12 text-base">
                         Explore the crypto world. Buy and sell cryptocurrencies easily on Coinbase.
                     </p>
-                    <button
+                    {!connectedAccount &&
+                    (<button
                         type="button"
                         onClick={connectWallet}
                         className="flex flex-row justify-center items-center my-5 bg-[#2952e3] p-3 rounded-full cursor-pointer hover:bg-[#2546bd]"
@@ -56,7 +63,7 @@ const Welcome = () => {
                         <p className="text-white text-base font-semibold">
                             Connect Wallet
                         </p>
-                    </button>
+                    </button>)}
                     <div className="grid sm:grid-cols-3 grid-cols-2 w-full mt-10">
                         <div className={`rounded-tl-2xl ${commonStyles}`}>
                         Reliability
@@ -103,7 +110,7 @@ const Welcome = () => {
 
                         <div className="h-[1px] w-full bg-gray-400 my-2"></div>
                     
-                        {true ? (
+                        {false ? (
                             <Loader />
                         ) : (
                             <div>
