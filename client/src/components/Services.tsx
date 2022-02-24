@@ -2,7 +2,14 @@ import { BsShieldFillCheck } from "react-icons/bs";
 import { BiSearchAlt } from "react-icons/bi";
 import { RiHeart2Fill } from "react-icons/ri";
 
-const ServiceCard = ({color, title, icon, subtitle}) => (
+type ServiceCardProps = {
+    color: string,
+    title: string,
+    icon: any,
+    subtitle: string
+}
+
+const ServiceCard = ({color, title, icon, subtitle}: ServiceCardProps) => (
     <div className="flex flex-row justify-start items-center white-glassmorphism p-3 m-2 cursor-pointer hover:shadow-xl">
         <div className={`w-10 h-10 rounded-full flex justify-center items-center ${color}`}>
             {icon}
@@ -34,23 +41,20 @@ const Services = () => {
                 <ServiceCard 
                     color="bg-[#2952E3]"
                     title="Security Guaranteed"
-                    icon={<BsShieldFillCheck fontSize={21} className="text-white"
+                    icon={<BsShieldFillCheck fontSize={21} className="text-white" />}
                     subtitle="Security is guatanted. we always maintain privacy and quality."
-                    />}
                 />
                 <ServiceCard 
                     color="bg-[#89845F8]"
                     title="Best exchange rates"
-                    icon={<BiSearchAlt fontSize={21} className="text-white"
+                    icon={<BsShieldFillCheck fontSize={21} className="text-white" />}
                     subtitle="Security is guatanted. we always maintain privacy and quality."
-                    />}
                 />
                 <ServiceCard 
                     color="bg-[#F84550]"
                     title="Fastest transactions"
-                    icon={<RiHeart2Fill fontSize={21} className="text-white"
+                    icon={<RiHeart2Fill fontSize={21} className="text-white" />}
                     subtitle="Security is guatanted. we always maintain privacy and quality."
-                    />}
                 />
             </div>
         </div>

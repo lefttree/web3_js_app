@@ -4,7 +4,17 @@ import dummyData from '../utils/dummyData';
 import { shortenAddress } from "../utils/shortenAddress";
 import useFetch from '../hooks/useFetch';
 
-const TransactionCard = ({addressTo, addressFrom, timestamp, message, keyword, amount, url}) => {
+type TransactionCardProps = {
+    addressTo: string,
+    addressFrom: string,
+    timestamp: string, 
+    message: string, 
+    keyword: string, 
+    amount: string, 
+    url: string
+}
+
+const TransactionCard = ({addressTo, addressFrom, timestamp, message, keyword, amount, url}: TransactionCardProps) => {
     const gifUrl = useFetch({keyword});
     
     return (
@@ -71,7 +81,7 @@ const Transactions = () => {
                 )}
 
                 <div className='flex flex-wrap justify-center items-center'>
-                    {transactions.reverse().map((transaction, i) => (
+                    {transactions.reverse().map((transaction: any, i: number) => (
                         <TransactionCard 
                         key={i} {...transaction}
                         />

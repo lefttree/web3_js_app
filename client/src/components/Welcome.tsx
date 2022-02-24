@@ -32,7 +32,7 @@ const Input = ({placeholder, name, type, value, handleChange} : InputProps) => (
 const Welcome = () => {
     const { connectWallet, connectedAccount, formData, sendTransaction, handleChange, isLoading } = useContext(TransactionContext);
 
-    const handleSubmit = (e) => {
+    const handleSubmit = (e: React.MouseEvent<HTMLButtonElement>) => {
         const {addressTo, amount, keyword, message } = formData;
 
         e.preventDefault();

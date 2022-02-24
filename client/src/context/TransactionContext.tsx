@@ -69,8 +69,8 @@ export const TransactionProvider = ({ children }: {children: any}) => {
             const availableTransactions = await transactionContract.getAllTransactions();
 
             console.log(availableTransactions);
-            
-            const structuredTransactions = availableTransactions.map((transaction) => ({
+
+            const structuredTransactions = availableTransactions.map((transaction: any) => ({
                 addressTo: transaction.receiver,
                 addressFrom: transaction.sender,
                 timestamp: new Date(transaction.timestamp.toNumber() * 1000).toLocaleString(),
