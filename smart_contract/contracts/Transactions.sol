@@ -12,7 +12,7 @@ contract Transactions { // like a class
         address receiver;
         uint amount;
         string message;
-        uint256 timestampe;
+        uint256 timestamp;
         string keyword;
     }
 
@@ -26,10 +26,10 @@ contract Transactions { // like a class
     }
 
     function getAllTransactions() public view returns (TransferStruct[] memory) {
-        // return transactions
+        return transactions;
     }
 
     function getTransactionCount() public view returns (uint256) {
-        // return transaction count
+        return transactionCounter;
     }
 }
